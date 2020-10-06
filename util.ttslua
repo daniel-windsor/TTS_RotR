@@ -1,0 +1,46 @@
+function loadObjects()
+  local allObj = getAllObjects()
+
+  for i, Container in pairs(allObj) do
+    if Container.tag == 'Bag' then
+      local sBag = Container.getName()
+      if sBag == 'Locations' or sBag == 'Henchmen And Villains' or sBag == 'Loot' then
+        str = sBag:gsub("%s+", "")
+        _G['bag'..str] = getObjectFromGUID(Container.guid)
+        local Items = Container.getObjects()
+        for i = 1, #Items do
+          _G[str][Items[i].name] = Items[i].guid
+        end
+      elseif sBag == 'Scenario Loot' then
+        str = sBag:gsub("%s+", "")
+        _G['bag'..str] = getObjectFromGUID(Container.guid)
+      end
+    elseif Container.tag == 'Deck' then
+      local sDeck = Container.getName()
+      if sDeck == 'Allies' or sDeck == 'Armor' or sDeck == 'Blessings' or sDeck == 'Items' or
+      sDeck == 'Spells' or sDeck == 'Weapons' or sDeck == 'Barriers' or sDeck == 'Monsters' then
+        _G['deck'..sDeck] = getObjectFromGUID(Container.guid)
+      end
+    end
+  end
+end
+
+function onObjectEnterScriptingZone(zone, object)
+  if zone == zoneScenario then
+    sScenario = object.getName()
+  elseif zone == zoneDiscard then
+
+  end
+end
+
+function shuffleAll()
+  local AllObj = getAllObjects()
+
+  for i, Container in pairs(AllObj) do
+    local iCount = Container.getQuantity()
+    if iCount >= 1 and Container.tag == 'Deck' then
+      tempDeck = getObjectFromGUID(Container.guid)
+      tempDeck.shuffle()
+    end
+  end
+end

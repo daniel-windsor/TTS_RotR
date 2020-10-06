@@ -1,0 +1,726 @@
+function gatherCards(arr, params, villain)
+  if (arr.allies) then
+    for i = 1, arr.allies do
+      deckAllies.takeObject(params)
+    end
+  end
+
+  if (arr.armor) then
+    for i = 1, arr.armor do
+      deckArmor.takeObject(params)
+    end
+  end
+
+  if (arr.blessings) then
+    for i = 1, arr.blessings do
+      deckBlessings.takeObject(params)
+    end
+  end
+
+  if (arr.items) then
+    for i = 1, arr.items do
+      deckItems.takeObject(params)
+    end
+  end
+
+  if (arr.spells) then
+    for i = 1, arr.spells do
+      deckSpells.takeObject(params)
+    end
+  end
+
+  if (arr.weapons) then
+    for i = 1, arr.weapons do
+      deckWeapons.takeObject(params)
+    end
+  end
+
+  if (arr.monsters) then
+    for i = 1, arr.monsters do
+      deckMonsters.takeObject(params)
+    end
+  end
+
+  if (arr.barriers) then
+    for i = 1, arr.barriers do
+      deckBarriers.takeObject(params)
+    end
+  end
+
+  if villain ~= nil then
+    params.guid = villain
+    bagHenchmenAndVillains.takeObject(params)
+  end
+end
+
+function loadDecks()
+  locBuilder['Woods'] = function(params, villain)
+    cards = {
+      items = 2,
+      weapons = 1,
+      monsters = 4,
+      barriers = 2
+    }
+
+    gatherCards(cards, params, villain)
+
+    if villain == nil and sScenario == 'Scenario 1-2' then
+      deckAllies.takeObject(params)
+    end
+  end
+  locBuilder['Waterfront'] = function (params, villain)
+    cards = {
+      items = 1,
+      monsters = 4,
+      barriers = 2,
+      allies = 2
+    }
+
+    gatherCards(cards, params, villain)
+
+    if villain == nil and sScenario == 'Scenario 1-2' then
+      deckAllies.takeObject(params)
+    end
+
+  end
+  locBuilder['Farmhouse'] = function (params, villain)
+    cards = {
+      items = 3,
+      weapons = 1,
+      monsters = 3,
+      barriers = 1,
+      allies = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Wooden Bridge'] = function (params, villain)
+    cards = {
+      monsters = 3,
+      barriers = 1,
+      allies = 3,
+      armor = 1,
+      blessings =  1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Academy'] = function (params, villain)
+    cards = {
+      items = 1,
+      monsters = 1,
+      barriers = 1,
+      allies = 1,
+      spells = 5
+    }
+
+    gatherCards(cards, params, villain)
+
+    if villain == nil and sScenario == 'Scenario 1-2' then
+      deckAllies.takeObject(params)
+    end
+  end
+  locBuilder['Prison'] = function (params, villain)
+    cards = {
+      monsters = 3,
+      barriers = 2,
+      allies = 2,
+      items = 1,
+      armor = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Garrison'] = function (params, villain)
+    cards = {
+      weapons = 3,
+      monsters = 3,
+      armor = 2,
+      allies = 1
+    }
+
+    gatherCards(cards, params, villain)
+
+    if villain == nil and sScenario == 'Scenario 1-2' then
+      deckAllies.takeObject(params)
+    end
+  end
+  locBuilder['Treacherous Cave'] = function (params, villain)
+    cards = {
+      items = 2,
+      weapons = 2,
+      monsters = 2,
+      barriers = 1,
+      armor = 2
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Dam'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 3,
+      barriers = 2,
+      armor = 1,
+      allies = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Death Zone'] = function (params, villain)
+    cards = {
+      monsters = 4,
+      barriers = 3,
+      allies = 1,
+      blessings = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['The Leng Device'] = function (params, villain)
+    cards = {
+      blessings = 3,
+      monsters = 6
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Runewell'] = function(params, villain)
+    cards = {
+      items = 2,
+      weapons = 2,
+      spells = 3,
+      armor = 1,
+      blessings = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Heptaric Locus'] = function(params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 3,
+      barriers = 1,
+      blessings = 1,
+      armor = 2
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['The Rusty Dragon'] = function(params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 2,
+      barriers = 1,
+      spells = 1,
+      allies = 3
+    }
+
+    gatherCards(cards, params, villain)
+
+    if villain == nil and sScenario == 'Scenario 1-2' then
+      deckAllies.takeObject(params)
+    end
+  end
+  locBuilder['Ravenous Crypts of Gluttony'] = function (params, villain)
+    cards = {
+      items = 1,
+      monsters = 2,
+      barriers = 2,
+      spells = 1,
+      armor = 1,
+      blessings = 2,
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Festering Maze of Sloth'] = function(params, villain)
+    cards = {
+      items = 1,
+      monsters = 3,
+      barriers = 1,
+      spells = 2,
+      allies = 1,
+      blessings = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Vault of Greed'] = function (params, villain)
+    cards = {
+      items = 4,
+      weapons = 1,
+      monsters = 2,
+      spells = 1,
+      armor = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Halls of Wrath'] = function (params, villain)
+    cards = {
+      weapons = 3,
+      monsters = 6,
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Runeforge Hub'] = function (params, villain)
+    cards = {}
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Sihedron Circle'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 1,
+      barriers = 1,
+      spells = 1,
+      armor = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Iron Cages of Lust'] = function (params, villain)
+    cards = {
+      items = 2,
+      monsters = 2,
+      barriers = 1,
+      allies = 2,
+      blessings = 2
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Shimmering Veils of Pride'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 2,
+      barriers = 1,
+      spells = 1,
+      allies = 1,
+      blessings = 1,
+      armor = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Abjurant Halls of Envy'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 3,
+      barriers = 2,
+      spells = 1,
+      armor = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Thassilonian Library'] = function (params, villain)
+    cards = {
+      monsters = 2,
+      barriers = 1,
+      blessings = 2,
+      spells = 3,
+      allies = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Courtyard'] = function (params, villain)
+    cards = {
+      items = 2,
+      weapons = 2,
+      monsters = 3,
+      armor = 2
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['ScarnettiManor'] = function (params, villain)
+    cards = {
+      items = 3,
+      weapons = 1,
+      monsters = 2,
+      armor = 2,
+      allies = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Giant Lair'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 4,
+      barriers = 1,
+      armor = 1,
+      blessings = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Shadow Clock'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 2,
+      barriers = 3,
+      spells = 1,
+      armor = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Shimmerglens'] = function (params, villain)
+    cards = {
+      items = 2,
+      monsters = 2,
+      barriers = 1,
+      spells = 2,
+      blessings = 2
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Goblin Fortress'] = function (params, villain)
+    cards = {
+      items = 2,
+      weapons = 1,
+      monsters = 3,
+      barriers = 1,
+      allies = 2
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Nettlemaze'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 6,
+      barriers = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Fort Rannick'] = function (params, villain)
+    cards = {
+      weapons = 2,
+      monsters = 2,
+      barriers = 1,
+      allies = 2,
+      armor = 2
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Junk Beach'] = function (params, villain)
+    cards = {
+      items = 3,
+      weapons = 1,
+      monsters = 2,
+      barriers = 2,
+      armor = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Academy'] = function (params, villain)
+    cards = {
+      items = 1,
+      monsters = 1,
+      barriers = 1,
+      spells = 5,
+      allies = 1
+    }
+
+    gatherCards(cards, params, villain)
+
+    if villain == nil and sScenario == 'Scenario 1-2' then
+      deckAllies.takeObject(params)
+    end
+  end
+  locBuilder['Foxglove Manor'] = function (params, villain)
+    cards = {
+      items = 2,
+      weapons = 1,
+      monsters = 2,
+      barriers = 1,
+      spells = 2,
+      blessings = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Catacombs of Wrath'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 6,
+      barriers = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Glassworks'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 3,
+      barriers = 1,
+      spells = 1,
+      allies = 2
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Temple'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 2,
+      spells = 2,
+      blessings = 4
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Village House'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 1,
+      barriers = 1,
+      spells = 1,
+      allies = 3,
+      blessings = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Guard Tower'] = function (params, villain)
+    cards = {
+      items = 2,
+      weapons = 2,
+      monsters = 1,
+      barriers = 1,
+      allies = 2,
+      armor = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['General Store'] = function (params, villain)
+    cards = {
+      items = 3,
+      weapons = 2,
+      monsters = 2,
+      armor = 1,
+      allies = 1
+    }
+
+    gatherCards(cards, params, villain)
+
+    if villain == nil and sScenario == 'Scenario 1-2' then
+      deckAllies.takeObject(params)
+    end
+  end
+  locBuilder['Mountain Peak'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 3,
+      barriers = 3,
+      armor = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Sandpoint Cathedral'] = function (params, villain)
+    cards = {
+      items = 1,
+      monsters = 2,
+      spells = 2,
+      allies = 1,
+      blessings = 3
+    }
+
+    gatherCards(cards, params, villain)
+
+    if villain == nil and sScenario == 'Scenario 1-2' then
+      deckAllies.takeObject(params)
+    end
+  end
+  locBuilder['Desecrated Vault'] = function (params, villain)
+    cards = {
+      items = 2,
+      monsters = 4,
+      barriers = 1,
+      spells = 1,
+      blessings = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Swallowtail Festival'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 2,
+      barriers = 1,
+      allies = 2,
+      blessings = 2
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Deeper Dungeons'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 4,
+      barriers = 2,
+      spells = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Thassilonian Dungeon'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 2,
+      barriers = 1,
+      spells = 3,
+      armor = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Shrine To Lamashtu'] = function (params, villain)
+    cards = {
+      monsters = 3,
+      barriers = 2,
+      blessings = 3,
+      spells = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Warrens'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 2,
+      monsters = 2,
+      barriers = 1,
+      allies = 2,
+      spells = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['City Gate'] = function (params, villain)
+    cards = {
+      items = 2,
+      weapons = 2,
+      monsters = 2,
+      barriers = 1,
+      allies = 2
+    }
+
+    gatherCards(cards, params, villain)
+
+    if villain == nil and sScenario == 'Scenario 1-2' then
+      deckAllies.takeObject(params)
+    end
+  end
+  locBuilder['Throne Room'] = function (params, villain)
+    cards = {
+      items = 2,
+      weapons = 2,
+      monsters = 2,
+      barriers = 1,
+      spells = 1,
+      armor = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['The Old Light'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 4,
+      barriers = 1,
+      spells = 2
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Town Square'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 2,
+      barriers = 1,
+      spells = 2,
+      allies = 2
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Apothecary'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 1,
+      spells = 3,
+      allies = 1,
+      blessings = 2
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Mill'] = function (params, villain)
+    cards = {
+      items = 1,
+      weapons = 1,
+      monsters = 2,
+      barriers = 2,
+      armor = 1,
+      allies = 1,
+      blessings = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Turtleback Ferry'] = function (params, villain)
+    cards = {
+      items = 2,
+      weapons = 1,
+      monsters = 2,
+      barriers = 1,
+      allies = 1,
+      spells = 1,
+      blessings = 1
+    }
+
+    gatherCards(cards, params, villain)
+  end
+  locBuilder['Habe\'s Sanatorium'] = function (params, villain)
+    cards = {
+      items = 2,
+      monsters = 3,
+      spells = 2,
+      allies = 2
+    }
+
+    gatherCards(cards, params, villain)
+  end
+end

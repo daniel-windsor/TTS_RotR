@@ -1,0 +1,61 @@
+function createBlessingDeck(num)
+  for i = 1, num do
+    deckBlessings.takeObject(scenarioBlessingDeck)
+  end
+end
+
+function shuffleVillains(scVillains)
+  local scVillainsShuff = {}
+
+  math.randomseed(os.time())
+
+  iCount = #scVillains
+  for i = 0, iCount do
+    m = math.random(1, iCount - i)
+    scVillainsShuff[i + 1] = scVillains[m]
+    if scVillains[m] ~= nil then
+      table.remove(scVillains, m)
+    end
+  end
+  return scVillainsShuff
+end
+
+--Deal each location deck
+function dealCards(scLocations, scVillainsShuff)
+  if deckNum > 8 then deckNum = 8; end
+
+  for i = 1, deckNum do
+    coordLocationCard[i].guid = Locations[scLocations[i]]
+    bagLocations.takeObject(coordLocationCard[i])
+
+    if scVillainsShuff ~= nil then
+      villain = HenchmenAndVillains[scVillainsShuff[i]]
+    end
+
+    locBuilder[scLocations[i]](coordLocationDeck[i], villain)
+
+    coordLocationDeck[i].guid = nil
+  end
+end
+
+--Deal loot
+function dealLoot(scLoot)
+  local lootTemp = bagLoot.getObjects()
+  local vPos = bagScenarioLoot.getPosition()
+  local lootGUID = {}
+
+  for i = 1, #lootTemp do
+    lootGUID[i] = lootTemp[i].guid
+  end
+
+  for i = 1, #scLoot do
+    for ii, a in ipairs(lootGUID) do
+      if a == Loot[scLoot[i]] then
+        vPos.guid = Loot[scLoot[i]]
+        print(vPos.guid)
+        vPos.position = {vPos.x, vPos.y + 1 + i * 0.5, vPos.z}
+        bagLoot.takeObject(vPos)
+      end
+    end
+  end
+end

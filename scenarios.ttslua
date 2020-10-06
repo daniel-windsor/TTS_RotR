@@ -1,0 +1,481 @@
+function loadScenarios()
+  scBuilder['Scenario B1'] = function ()
+    --Create array of locations in scenario
+    local scLocations = {'Woods', 'Waterfront', 'Farmhouse', 'Wooden Bridge',
+    'Academy', 'Prison', 'Garrison', 'Treacherous Cave'}
+
+    --Create Villain/Henchmen array
+    local scVillains = {'Jubrayl Vhiski'}
+    for i = 2, deckNum do
+      scVillains[i] = 'Bandit '.. i - 1
+    end
+
+    --Deals all cards to location decks
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario B2'] = function ()
+    local scLocations = {'Town Square', 'Village House', 'City Gate', 'General Store',
+    'Apothecary', 'Sandpoint Cathedral', 'The Old Light', 'Guard Tower'}
+
+    local scVillains = {'Pillbug Podiker'}
+    for i = 2, deckNum do
+      scVillains[i] = 'Poison Trap ' .. i - 1
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario B3'] = function ()
+    local scLocations = {'Desecrated Vault', 'Temple', 'Shrine To Lamashtu', 'Throne Room',
+    'Thassilonian Dungeon', 'Warrens', 'Deeper Dungeons', 'Mountain Peak'}
+
+    local scVillains = {'Black Fang'}
+    for i = 2, deckNum do
+      scVillains[i] = 'Ancient Skeleton ' .. i - 1
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 1-1'] = function ()
+    local scLocations = {'Town Square', 'Swallowtail Festival', 'City Gate', 'Sandpoint Cathedral',
+    'The Rusty Dragon', 'The Old Light', 'Wooden Bridge', 'Desecrated Vault'}
+
+    local scVillains = {'Ripnugget and Stickfoot', 'Tsuto Kaijitsu'}
+    for i = 3, deckNum do
+      scVillains[i] = 'Goblin Raider ' .. i - 2
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 1-2'] = function ()
+    local scLocations = {'General Store', 'Woods', 'Waterfront', 'Academy',
+    'The Rusty Dragon', 'Sandpoint Cathedral', 'City Gate', 'Garrison'}
+
+    for i = 1, deckNum do
+      coordLocationCard[i].guid = Locations[scLocations[i]]
+      bagLocations.takeObject(coordLocationCard[i])
+    end
+
+    for i = 1, deckNum do
+      locBuilder[scLocations[i]](coordLocationDeck[i], nil)
+    end
+  end
+
+  scBuilder['Scenario 1-3'] = function ()
+    local scLocations = {'Glassworks', 'Catacombs of Wrath', 'Shrine To Lamashtu', 'Village House',
+    'The Old Light', 'Junk Beach', 'Waterfront', 'Apothecary'}
+
+
+    local scVillains = {'Erylium', 'Koruvus'}
+    for i = 3, deckNum do
+      scVillains[i] = 'Wrathful Sinspawn ' .. i - 2
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 1-4'] = function ()
+    local scLocations = {'Woods', 'Treacherous Cave', 'Goblin Fortress', 'Nettlemaze',
+    'Waterfront', 'Guard Tower', 'Prison', 'Garrison'}
+
+    local scVillains = {'Gogmurt', 'Tangletooth', 'Bruthazmus'}
+    for i = 4, deckNum do
+      scVillains[i] = 'Goblin Raider ' .. i - 3
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 1-5'] = function ()
+    local scLocations = {'Throne Room', 'Thassilonian Dungeon', 'Warrens', 'Goblin Fortress',
+    'Temple', 'Deeper Dungeons', 'Garrison', 'Desecrated Vault'}
+
+    local scLoot = {'Sihedron Medallion 1'}
+
+    local scVillains = {'Nualia', 'Lyrie Akenja', 'Orik Vancaskerkin'}
+    for i = 4, deckNum do
+      scVillains[i] = 'Goblin Raider ' .. i - 3
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+
+    dealLoot(scLoot)
+  end
+
+  scBuilder['Scenario 2-1'] = function ()
+    local scLocations = {'Habe\'s Sanatorium', 'Mill', 'Village House', 'General Store',
+    'The Old Light', 'Desecrated Vault', 'Thassilonian Dungeon', 'Prison'}
+
+    local scVillains = {'Caizarlu Zerren', 'Pidget Tergelson', 'Dr. Habe', 'Grayst Sevilla'}
+    for i = 5, deckNum do
+      scVillains[i] = 'Zombie Minion ' .. i - 4
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 2-2'] = function ()
+    local scLocations = {'Farmhouse', 'Wooden Bridge', 'Guard Tower', 'Woods',
+    'Desecrated Vault', 'General Store', 'Apothecary', 'Village House'}
+
+    local scVillains = {'Rogors Craesby', 'Scarecrow Golem'}
+    for i = 3, deckNum do
+      scVillains[i] = 'Ghoul Scarecrow ' .. i - 2
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 2-3'] = function ()
+    local scLocations = {'Foxglove Manor', 'Farmhouse', 'Warrens', 'Academy',
+    'Prison', 'Deeper Dungeons', 'Treacherous Cave', 'Desecrated Vault'}
+
+    local scVillains = {'The Skinsaw Man'}
+    for i = 2, deckNum do
+      scVillains[i] = 'Haunt ' .. i - 1
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 2-4'] = function ()
+    local scLocations = {'Mill', 'City Gate', 'Academy', 'Temple',
+    'Waterfront', 'Shrine To Lamashtu', 'Guard Tower', 'Apothecary'}
+
+    local scVillains = {'Justice Ironbriar'}
+    for i = 2, deckNum do
+      scVillains[i] = 'Skinsaw Cultist ' .. i - 1
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 2-5'] = function ()
+    local scLocations = {'Shadow Clock', 'Temple', 'Shrine To Lamashtu', 'City Gate',
+    'Throne Room', 'Mill', 'Waterfront', 'Desecrated Vault'}
+
+    local scLoot = {'Impaler of Thorns', 'Medusa Mask', 'Sihedron Medallion 2', 'Snakeskin Tunic'}
+
+    local scVillains = {'Xanesha', 'Scarecrow Golem'}
+    for i = 3, deckNum do
+      scVillains[i] = 'Charmed Faceless Stalker ' .. i - 2
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+
+    dealLoot(scLoot)
+  end
+
+  scBuilder['Scenario 3-1'] = function ()
+    local scLocations = {'Wooden Bridge', 'Turtleback Ferry', 'Farmhouse', 'Woods',
+    'Village House', 'Waterfront', 'General Store', 'Prison'}
+
+    local scVillains = {'Mammy Graul', 'Ruckus Graul and Hound', 'Crowfood Graul'}
+    for i = 4, deckNum do
+      scVillains[i] = 'Graul Ogrekin ' .. i - 3
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 3-2'] = function ()
+    local scLocations = {'Fort Rannick', 'City Gate', 'Guard Tower', 'Garrison',
+    'Warrens', 'Prison', 'Deeper Dungeons', 'Mountain Peak'}
+
+    local scVillains = {'Jaagrath Kreeg', 'Lucrecia', 'Dorella and Hookmaw Kreeg',
+    'Kaven Windstrike'}
+    for i = 5, deckNum do
+      scVillains[i] = 'Kreeg Ogre ' .. i - 4
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 3-3'] = function ()
+    local scLocations = {'Turtleback Ferry', 'Academy', 'Village House', 'Woods',
+    'Waterfront', 'General Store', 'Dam', 'Treacherous Cave'}
+
+    for i = 1, deckNum do
+      coordLocationCard[i].guid = Locations[scLocations[i]]
+      bagLocations.takeObject(coordLocationCard[i])
+    end
+
+    for i = 1, deckNum do
+      deckAllies.takeObject(altDeckA)
+      deckBlessings.takeObject(altDeckA)
+    end
+
+    for i = 1, deckNum do
+      altDeckA.guid = 'Nightbelly Boa ' .. i
+      bagHenchmenAndVillains.takeObject(altDeckA)
+    end
+
+    altDeckA.guid = 'Black Magga'
+    bagHenchmenAndVillains.takeObject(altDeckA)
+
+    for i = 1, deckNum do
+      locBuilder[scLocations[i]](coordLocationDeck[i], nil)
+    end
+  end
+
+  scBuilder['Scenario 3-4'] = function ()
+    local scLocations = {'Dam', 'Shimmerglens', 'Garrison', 'Guard Tower',
+    'Prison', 'Treacherous Cave', 'Waterfront', 'Mountain Peak'}
+
+    local scVillains = {'Malugus Kreeg'}
+    for i = 2, deckNum do
+      scVillains[i] = 'Kreeg Ogre ' .. i - 1
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 3-5'] = function ()
+    local scLocations = {'Mountain Peak', 'Shrine To Lamashtu', 'Shimmerglens', 'Woods',
+    'Desecrated Vault', 'Thassilonian Dungeon', 'Temple', 'Deeper Dungeons'}
+
+    local scLoot = {'Headband of Vast Intelligence', 'Sihedron Medallion 3', 'Wand of Enervation'}
+
+    local scVillains = {'Barl Breakbones', 'Lamatar Bayden', 'Lunderbud'}
+    for i = 4, deckNum do
+      scVillains[i] = 'Hook Mountain Hag ' .. i - 3
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+
+    dealLoot(scLoot)
+  end
+
+  scBuilder['Scenario 4-1'] = function ()
+    local scLocations = {'Sandpoint Cathedral', 'City Gate', 'ScarnettiManor', 'The Old Light',
+    'Wooden Bridge', 'Waterfront', 'Town Square', 'Courtyard'}
+
+    local scVillains = {'Teraktinus', 'Longtooth'}
+    for i = 3, deckNum do
+      scVillains[i] = 'Jorgenfist Stone Giant ' .. i - 2
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 4-2'] = function ()
+    local scLocations = {'Mountain Peak', 'Giant Lair', 'Treacherous Cave', 'Guard Tower',
+    'Courtyard', 'Prison', 'Garrison', 'City Gate'}
+
+    local scVillains = {'Galenmir', 'Longtooth', 'Cinderma'}
+    for i = 4, deckNum do
+      scVillains[i] = 'Jorgenfist Stone Giant ' .. i - 3
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 4-3'] = function ()
+    local scLocations = {'Courtyard', 'Guard Tower', 'Throne Room', 'Mountain Peak',
+    'City Gate', 'Temple', 'Academy', 'Deeper Dungeons'}
+
+    local scLoot = {'Emerald Codex'}
+
+    local scVillains = {'The Black Monk'}
+    for i = 2, deckNum do
+      scVillains[i] = 'Harpy Monk ' .. i - 1
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+
+    dealLoot(scLoot)
+  end
+
+  scBuilder['Scenario 4-4'] = function ()
+    local scLocations = {'Thassilonian Dungeon', 'Giant Lair', 'Desecrated Vault', 'Garrison',
+    'Mountain Peak', 'Warrens', 'Deeper Dungeons', 'Guard Tower'}
+
+    local scVillains = {'Seleval', 'Zaelsar', 'Enga Keckvia', 'Lokansir'}
+    for i = 5, deckNum do
+      scVillains[i] = 'Tyrant Troll ' .. i - 4
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 4-5'] = function ()
+    local scLocations = {'Thassilonian Library', 'Thassilonian Dungeon', 'Giant Lair', 'Treacherous Cave',
+    'Prison', 'Deeper Dungeons', 'Shrine To Lamashtu', 'Temple'}
+
+    local scLoot = {'Mokmurian\'s Club', 'Robe of Runes'}
+
+    local scVillains = {'Mokmurian', 'Headless Lord', 'Forgefiend'}
+    for i = 4, deckNum do
+      scVillains[i] = 'Hill Giant Runeslave ' .. i - 3
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+
+    dealLoot(scLoot)
+  end
+
+  scBuilder['Scenario 5-1'] = function ()
+    local scLocations = {'Shrine To Lamashtu', 'Garrison', 'Thassilonian Dungeon', 'Town Square',
+    'The Old Light', 'Sandpoint Cathedral', 'Halls of Wrath', 'Prison'}
+
+    local scLoot = {'Fanged Falchion', 'Revelation Quill'}
+
+    local scVillains = {'The Scribbler'}
+    for i = 2, deckNum do
+      scVillains[i] = 'Hounds of Lamashtu ' .. i - 1
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+
+    dealLoot(scLoot)
+  end
+
+  scBuilder['Scenario 5-2'] = function ()
+    deckNum = 8
+
+    coordLocationCard[1].guid = Locations['Sihedron Circle']
+    bagLocations.takeObject(coordLocationCard[1])
+
+    locBuilder['Sihedron Circle'](coordLocationDeck[1], 'Arkhyst')
+
+    for i = 2, 8 do
+      locBuilder['Sihedron Circle'](coordLocationDeck[i], 'Stone Head ' ..i - 1)
+    end
+  end
+
+  scBuilder['Scenario 5-3'] = function ()
+    local scLocations = {'Iron Cages of Lust', 'Shimmering Veils of Pride', 'Academy', 'Throne Room',
+    'Temple', 'Garrison', 'Prison', 'Abjurant Halls of Envy'}
+
+    local scVillains = {'Mistress Delvahine'}
+    for i = 2, deckNum do
+      scVillains[i] = 'Alu-Demon Sister ' .. i - 1
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 5-4'] = function ()
+    local scLocations = {'Ravenous Crypts of Gluttony', 'Festering Maze of Sloth', 'Vault of Greed', 'Shimmering Veils of Pride',
+    'Abjurant Halls of Envy', 'Thassilonian Dungeon', 'Throne Room', 'Desecrated Vault'}
+
+    local scLoot = {'Staff of Hungry Shadows', 'Summon Monster', 'Ordikon\'s Staff'}
+
+    local scVillains = {'Azaven', 'Ordikon', 'Jordimandus', 'Xyoddin Xerriock'}
+    for i = 5, deckNum do
+      scVillains[i] = 'Simulacrum of Vraxeris ' .. i - 4
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+
+    dealLoot(scLoot)
+  end
+
+  scBuilder['Scenario 5-5'] = function ()
+    local scLocations = {'Runeforge Hub', 'Halls of Wrath', 'Iron Cages of Lust', 'Shimmering Veils of Pride',
+    'Ravenous Crypts of Gluttony', 'Festering Maze of Sloth', 'Vault of Greed'}
+
+    deckNum = deckNum - 1
+
+    local scLoot = {'Runeforged Weapons'}
+
+    scVillainsShuff = {}
+
+    local scVillains = {'Highlady Athroxis'}
+    for i = 2, deckNum do
+      scVillains[i] = 'Warrior of Wrath ' .. i - 1
+    end
+
+    local scVillainsShuff = shuffleVillains(scVillains)
+    temp = scVillainsShuff[1]
+    scVillainsShuff[1] = 'Karzoug Statue'
+    scVillainsShuff[#scVillainsShuff] = temp
+
+    dealCards(scLocations, scVillainsShuff, 0)
+
+    dealLoot(scLoot)
+  end
+
+  scBuilder['Scenario 6-1'] = function ()
+    local scLocations = {'Mountain Peak', 'Treacherous Cave', 'Village House', 'Woods',
+    'Wooden Bridge', 'Temple', 'Desecrated Vault', 'Throne Room'}
+
+    local scVillains = {'Wendigo', 'Karivek Vekker', 'Silas Vekker'}
+    for i = 4, deckNum do
+      scVillains[i] = 'Cannibal Haunt ' .. i - 3
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 6-2'] = function ()
+    local scLocations = {'Mountain Peak', 'Heptaric Locus', 'Town Square', 'City Gate',
+    'Temple', 'Garrison', 'Guard Tower', 'Academy'}
+
+    altDeckA.guid = 'Ghlorofaex'
+    bagHenchmenAndVillains.takeObject(altDeckA)
+
+    local scVillains = {}
+    for i = 1, deckNum do
+      scVillains[i] = 'Warden of Runes ' .. i
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+  end
+
+  scBuilder['Scenario 6-3'] = function ()
+    deckNum = playerNum
+
+    coordLocationCard[1].guid = Locations['Death Zone']
+    bagLocations.takeObject(coordLocationCard[1])
+
+    local scVillains = {}
+    for i = 1, deckNum do
+      scVillains[i] = 'Leng Spider ' .. i
+    end
+
+    for i = 1, deckNum do
+      locBuilder['Death Zone'](coordLocationDeck[i], scVillains[i])
+    end
+  end
+
+  scBuilder['Scenario 6-4'] = function ()
+    local scLocations = {'The Leng Device', 'Runewell', 'Throne Room', 'Thassilonian Dungeon',
+    'Mountain Peak', 'Prison', 'Guard Tower', 'Temple'}
+
+    local scLoot = {'Chellan Sword of Greed'}
+
+    local scVillains = {'Most High Ceoptra', 'Khalib', 'Viorian Dekanti'}
+    for i = 4, deckNum do
+      scVillains[i] = 'Warden of Runes ' .. i - 3
+    end
+
+    dealCards(scLocations, shuffleVillains(scVillains), 0)
+
+    dealLoot(scLoot)
+  end
+
+  scBuilder['Scenario 6-5'] = function ()
+    local scLoot = {'Robes of Xin Shalast', 'Karzoug\'s Burning Glaive', 'Sihedron Tome'}
+
+    coordLocationCard[1].guid = Locations['Runewell']
+    bagLocations.takeObject(coordLocationCard[1])
+
+    local scVillains = {'Karzoug The Claimer', 'Enslaved Blue Dragon'}
+    for i = 3, playerNum + 1 do
+      scVillains[i] = 'Warden of Runes ' .. i - 2
+    end
+
+    locBuilder['Runewell'](coordLocationDeck[1], scVillains[1])
+
+    for i = 1, playerNum do
+      coordLocationDeck[1].guid = scVillains[i + 1]
+      bagHenchmenAndVillains.takeObject(coordLocationDeck[1])
+    end
+
+    dealLoot(scLoot)
+  end
+end

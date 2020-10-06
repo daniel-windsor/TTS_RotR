@@ -1,0 +1,95 @@
+zoneScenario_GUID = 'a55eec'
+zoneBoard_GUID = '50404c'
+zoneDiscard_GUID = 'aba81b'
+
+locationA = {}
+locationA.position = { - 9, 1.9, - 5.1, }
+locationA.rotation = {7, 180, 0}
+locationA.flip = false
+
+locationDeckA = {}
+locationDeckA.position = { - 11.4, 1.9, - 5.1}
+locationDeckA.rotation = {6.7, 180, 180}
+locationDeckA.flip = false
+
+locationB = {}
+locationB.position = { - 2.25, 1.9, - 5.1}
+locationB.rotation = { - 2.25, 180, 0}
+locationB.flip = false
+
+locationDeckB = {}
+locationDeckB.position = { - 4.5, 1.9, - 5.1}
+locationDeckB.rotation = { 1.7, 180, 180}
+locationDeckB.flip = false
+
+locationC = {}
+locationC.position = { 4.6, 1.9, - 5.1}
+locationC.rotation = {7.8, 180, 0}
+locationC.flip = false
+
+locationDeckC = {}
+locationDeckC.position = {2.3, 1.9, - 5.1, }
+locationDeckC.rotation = {6.5, 180, 180}
+locationDeckC.flip = false
+
+locationD = {}
+locationD.position = {11.4, 1.9, - 5.1}
+locationD.rotation = {9.6, 180, 0}
+locationD.flip = false
+
+locationDeckD = {}
+locationDeckD.position = {9.1, 1.9, - 5.1, }
+locationDeckD.rotation = {3.7, 180, 180}
+locationDeckD.flip = false
+
+locationE = {}
+locationE.position = { - 7.8, 1.9, 0.2}
+locationE.rotation = { - 1.3, 270, 0}
+locationE.flip = false
+
+locationDeckE = {}
+locationDeckE.position = { - 7.8, 1.9, 2.5}
+locationDeckE.rotation = { - 3.6, 270, 180}
+locationDeckE.flip = false
+
+locationF = {}
+locationF.position = {7.8, 1.9, 2.4}
+locationF.rotation = { - 1.3, 90, 0}
+locationF.flip = false
+
+locationDeckF = {}
+locationDeckF.position = {7.8, 1.9, 0.1}
+locationDeckF.rotation = { - 1.3, 90, 180}
+locationDeckF.flip = false
+
+locationG = {}
+locationG.position = { - 7.8, 1.9, 6.6, }
+locationG.rotation = { - 2.6, 270, 0}
+locationG.flip = false
+
+locationDeckG = {}
+locationDeckG.position = { - 7.8, 1.9, 8.8}
+locationDeckG.rotation = { - 7.6, 270, 180}
+locationDeckG.flip = false
+
+locationH = {}
+locationH.position = {7.8, 1.9, 8.9}
+locationH.rotation = {4.5, 90, 0}
+locationH.flip = false
+
+locationDeckH = {}
+locationDeckH.position = {7.8, 1.9, 6.6}
+locationDeckH.rotation = { - 5.9, 90, 180}
+locationDeckH.flip = false
+
+scenarioBlessingDeck = {}
+scenarioBlessingDeck.position = {1.4, 1.9, 3.5, }
+scenarioBlessingDeck.rotation = {0, 180, 180}
+scenarioBlessingDeck.flip = false
+
+altDeckA = {}
+altDeckA.position = { 0, 1.9, - 0.2}
+altDeckA.rotation = {180, 270, 0}
+altDeckA.flip = false
+objectTable = {'e2a04d', '327fe1', 'acae48', '6a31a8', '61e302', '08fc55', 'f26211',
+'dea3f7'}
